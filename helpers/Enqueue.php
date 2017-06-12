@@ -43,10 +43,10 @@ class Enqueue
     {
         if(!isset(self::$manifest)) {
 
-            $base = get_template_directory();
+            $dir = isset($GLOBALS['dist-directory']) ? $GLOBALS['dist-directory'] : get_template_directory() . '/dist/';
 
-            if (file_exists($base . '/dist/manifest.json')) {
-                self::$manifest = json_decode(file_get_contents($base . '/dist/manifest.json'), true);
+            if (file_exists($dir . 'manifest.json')) {
+                self::$manifest = json_decode(file_get_contents($dir . 'manifest.json'), true);
             } else {
                 self::$manifest = false;
             }

@@ -8,6 +8,7 @@ Action::add('rest_api_init', function() {
     register_rest_route( 'app/v1', '/info', array(
         'methods' => 'GET',
         'callback' => 'apiGetInfo',
+        'permission_callback' => '__return_true'
     ) );
 });
 
